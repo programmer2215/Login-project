@@ -7,7 +7,6 @@ Instructions:
     
     1) save all files (User.py, app.py, database.py, login_details.sqlite) inside the same folder
     2) always run app.py
-    3) make sure you have DB browser for SQLite (if not: https://sqlitebrowser.org/dl/)
     
 
 '''
