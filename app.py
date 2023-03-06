@@ -1,6 +1,7 @@
 from database import *
-from tkinter import *
-
+from tkinter import ttk
+import tkinter as tk
+from tkinter.font import Font
 
 '''
 Instructions:
@@ -13,23 +14,32 @@ Instructions:
 
 # create window
 
-root = Tk()
+
+
+root = tk.Tk()
 root.geometry("300x400")
+root.title("Login")
 
-LOGIN = Label(root, text = 'LOGIN', font=("Helvetica", 16)).pack()
 
-name = Label(root, text = '\nuser name/ email id\n', font=("Helvetica", 16)).pack()
 
-idvar = StringVar()
-entry = Entry(root, textvariable = idvar, bg = 'white', fg = 'black').pack()
+entries_frame = tk.Frame(root)
 
-passw = Label(root, text = '\npassword\n', font=("Helvetica", 16)).pack()
 
-pvar = StringVar()
-entry2 = Entry(root, textvariable = pvar, show = '*',bg = 'white', fg = 'black').pack()
+LOGIN = tk.Label(root, text = 'LOGIN', font=("Segoi UI", 16))
 
-text = StringVar()
-text.set('')
+name = tk.Label(root, text = '\nuser name/ email id\n', font=("Helvetica", 16)).pack()
+
+idvar = tk.StringVar()
+entry = ttk.Entry(root, textvariable = idvar).pack()
+
+passw = tk.Label(root, text = '\npassword\n', font=("Helvetica", 16)).pack()
+
+pvar = tk.StringVar()
+entry2 = ttk.Entry(root, textvariable = pvar, show = '*').pack()
+
+text = tk.StringVar()
+passw = tk.Label(root, textvariable= text, font=("Helvetica", 16)).pack()
+
 
 # clear entry fields
 def clear():
@@ -72,11 +82,11 @@ def login():
                 change('Login successful')
                 print('Process completed successfully')
 
-label_valid = Label(root, textvariable = text, fg = 'black', font=("Helvetica", 16)).pack()
 
-button = Button(root, text = "Login", padx = 15 , pady = 5, command = login, fg = 'black', bg = 'white').pack()
 
-button2 = Button(root, text = "Sign up", padx = 15 , pady = 5, command = create_window).pack()
+button = ttk.Button(root, text = "Login", command = login).pack()
+
+button2 = ttk.Button(root, text = "Sign up", command = create_window).pack(pady=5)
 
 
 root.mainloop()
